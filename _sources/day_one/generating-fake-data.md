@@ -53,6 +53,7 @@ line2 = x ** 2 + 10 * x
 
 f, ax = plt.subplots(dpi=150)
 
+ax.errorbar(x, y, yerror, marker='o')
 ax.plot(x, line1)
 ax.plot(x, line2)
 ```
