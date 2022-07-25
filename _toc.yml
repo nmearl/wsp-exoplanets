@@ -1,0 +1,20 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Day 1
+  chapters:
+  - file: day_one/introduction-to-exoplanets
+  - file: day_one/exoplanet-transits
+  - file: day_one/analyzing-light-curves
+  - file: day_one/generating-fake-data
+- caption: Day 2
+  chapters:
+  - file: day_two/analyzing-published-data
+  - file: day_two/making-our-own-data
+  - file: day_two/defining-a-model
+- caption: Reference
+  chapters:
+  - file: reference/intro_to_colab_notebooks
