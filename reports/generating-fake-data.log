@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "/Users/nmearl/miniforge3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/nmearl/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/nmearl/miniforge3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/nmearl/miniforge3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/nmearl/miniforge3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/nmearl/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/nmearl/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/nmearl/miniforge3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# in this function, we provide our time array,
+# choose the start and stop points for when our planet
+# crosses in front of the star, and how much the brightness
+# changes when this happens
+
+def square_dip(t,start,stop,depth):
+    transit_expected = np.ones(len(t))
+    transit_expected[start:stop] = depth
+    return transit_expected
+
+# this function will give the line "fit" for the exoplanet transit
+fake_fit = square_dip(t, 47, 67, 0.9)
+
+f, ax = plt.subplots(dpi=150)
+
+ax.plot(t, measurements, errors, color='r', marker='.', label='Data')
+ax.plot(t, ffake_fitit, label="Fit")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [7][0m, in [0;36m<cell line: 17>[0;34m()[0m
+[1;32m     14[0m f, ax [38;5;241m=[39m plt[38;5;241m.[39msubplots(dpi[38;5;241m=[39m[38;5;241m150[39m)
+[1;32m     16[0m ax[38;5;241m.[39mplot(t, measurements, errors, color[38;5;241m=[39m[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m, marker[38;5;241m=[39m[38;5;124m'[39m[38;5;124m.[39m[38;5;124m'[39m, label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mData[39m[38;5;124m'[39m)
+[0;32m---> 17[0m ax[38;5;241m.[39mplot(t, [43mffake_fitit[49m, label[38;5;241m=[39m[38;5;124m"[39m[38;5;124mFit[39m[38;5;124m"[39m)
+
+[0;31mNameError[0m: name 'ffake_fitit' is not defined
+NameError: name 'ffake_fitit' is not defined
+
