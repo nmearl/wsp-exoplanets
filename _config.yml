@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Exoplanets
-author: Nicholas Earl based on material by Taylor Hutchison and Ryan Blackman
+author: Nicholas Earl based on material from Taylor Hutchison and Ryan Blackman
 logo: logo.png
 
 # Force re-execution of notebooks on each build.

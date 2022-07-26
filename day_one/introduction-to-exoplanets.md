@@ -1,6 +1,6 @@
 # Introduction to Exoplanets
 
-The following exercises are designed to familiarize you with the concepts of exoplanets and methods for detecting them. Please work through the questions in order, consult with your partners frequently, and be sure to show your work. Try not to look ahead in any of these exercises. It’s okay if you’re not able to answer a question right away; this exercise was designed to get you thinking about the topic and guide you toward understanding. The most important thing is to put your best effort into every question. Finally, feel free to ask if you have any questions at all! 
+The following exercises are designed to familiarize you with the concepts of exoplanets and methods for detecting them. Please work through the questions in order, consult with your partners frequently, and be sure to show your work. Try not to look ahead in any of these exercises. It’s okay if you’re not able to answer a question right away; this exercise was designed to get you thinking about the topic and guide you toward understanding. The most important thing is to put your best effort into every question. Finally, feel free to ask if you have any questions at all!
 
 ## What is a planet?
 
