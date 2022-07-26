@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Making Our Own Data" href="making-our-own-data.html" />
+    <link rel="prev" title="Generating Fake Data" href="../day_one/generating-fake-data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -135,6 +137,28 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../day_one/generating-fake-data.html">
    Generating Fake Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Day 2
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Analyzing Published Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="making-our-own-data.html">
+   Making Our Own Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="defining-a-model.html">
+   Defining a Model
   </a>
  </li>
 </ul>
@@ -330,6 +354,46 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="analyzing-published-data">
 <h1>Analyzing Published Data<a class="headerlink" href="#analyzing-published-data" title="Permalink to this headline">#</a></h1>
+<p>Recall from yesterday that determined there are two main ways to detect an exoplanet: using radial velocities (i.e. the “wobble” method), or using transit method.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="6ca62d8f-33d4-4aed-879c-7da07c5e56ee" name="9431f799-db8c-4411-a596-3d730c7e9da0" type="radio">
+</input><label class="sd-tab-label" for="6ca62d8f-33d4-4aed-879c-7da07c5e56ee">
+Radial Velocities</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="id1">
+<img alt="../_images/radial_velocity_4k.gif" src="../_images/radial_velocity_4k.gif" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Image credit: NASA</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>✅ Finding <strong>big</strong> exoplanets in <strong>close</strong> orbits</p></li>
+<li><p>✅ Measuring exoplanet <strong>mass</strong></p></li>
+<li><p>✅ Ground-based telescopes</p></li>
+<li><p>🚫 Finding exoplanets in <strong>distant</strong> orbits</p></li>
+<li><p>🚫 Measuring exoplanet <strong>diameters</strong></p></li>
+<li><p>🚫 Finding <strong>small</strong> exoplanets</p></li>
+</ul>
+</div>
+<input id="501df4ff-6ce9-43cf-8266-b9f0852758cc" name="9431f799-db8c-4411-a596-3d730c7e9da0" type="radio">
+</input><label class="sd-tab-label" for="501df4ff-6ce9-43cf-8266-b9f0852758cc">
+Transits</label><div class="sd-tab-content docutils">
+<figure class="align-default" id="id2">
+<img alt="../_images/transit_method_single_planet_4k.gif" src="../_images/transit_method_single_planet_4k.gif" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Image credit: NASA</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>✅ Finding exoplanets in <strong>close</strong> orbits</p></li>
+<li><p>✅ Measuring exoplanet <strong>diameters</strong></p></li>
+<li><p>✅ Space-based telescopes</p></li>
+<li><p>🚫 Finding exoplanets that <strong>don’t</strong> cross stars</p></li>
+<li><p>🚫 Measuring exoplanet <strong>mass</strong></p></li>
+<li><p>🚫 Determining if actually a planet or small star</p></li>
+</ul>
+</div>
+</div>
+<p>The most popular method is the transit method. Using this technique, astronomers can get information about the size of the planet and the radius of its orbit, as well as the inclination. Let’s explore some real data taken using this method.</p>
 <p>The figure below was taken from a recent publication by Crossfield et al. (2017) in the Astronomical Journal. Can you find the planet? Do you see anything else? If so, what do you think it implies?</p>
 <img alt="../_images/crossfield_lc_pre.jpg" id="crossfield-pre" src="../_images/crossfield_lc_pre.jpg" />
 <p><br/><br/></p>
@@ -374,6 +438,20 @@ Surprise! It turns out that there are two planets hiding in this light curve! Th
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../day_one/generating-fake-data.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Generating Fake Data</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="making-our-own-data.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Making Our Own Data</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
@@ -381,7 +459,7 @@ Surprise! It turns out that there are two planets hiding in this light curve! Th
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Nicholas Earl based on material by Taylor Hutchison and Ryan Blackman<br/>
+    By Nicholas Earl based on material from Taylor Hutchison and Ryan Blackman<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

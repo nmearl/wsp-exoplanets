@@ -1,5 +1,35 @@
 # Analyzing Published Data
 
+Recall from yesterday that determined there are two main ways to detect an exoplanet: using radial velocities (i.e. the "wobble" method), or using transit method.
+
+`````{tab-set}
+````{tab-item} Radial Velocities
+```{figure} static/radial_velocity_4k.gif
+Image credit: NASA
+```
+- ✅ Finding **big** exoplanets in **close** orbits
+- ✅ Measuring exoplanet **mass**
+- ✅ Ground-based telescopes
+- 🚫 Finding exoplanets in **distant** orbits
+- 🚫 Measuring exoplanet **diameters**
+- 🚫 Finding **small** exoplanets
+````
+
+````{tab-item} Transits
+```{figure} static/transit_method_single_planet_4k.gif
+Image credit: NASA
+```
+- ✅ Finding exoplanets in **close** orbits
+- ✅ Measuring exoplanet **diameters**
+- ✅ Space-based telescopes
+- 🚫 Finding exoplanets that **don't** cross stars
+- 🚫 Measuring exoplanet **mass**
+- 🚫 Determining if actually a planet or small star
+````
+`````
+
+The most popular method is the transit method. Using this technique, astronomers can get information about the size of the planet and the radius of its orbit, as well as the inclination. Let's explore some real data taken using this method.
+
 The figure below was taken from a recent publication by Crossfield et al. (2017) in the Astronomical Journal. Can you find the planet? Do you see anything else? If so, what do you think it implies?
 
 ```{image} static/crossfield_lc_pre.jpg
