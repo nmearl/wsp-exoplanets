@@ -1,6 +1,6 @@
 # Analyzing Published Data
 
-Recall from yesterday that determined there are two main ways to detect an exoplanet: using radial velocities (i.e. the "wobble" method), or using transit method.
+Recall from yesterday that we determined there are two main ways to detect an exoplanet: using radial velocities (i.e. the "wobble" method), or using the transit method.
 
 `````{tab-set}
 ````{tab-item} Radial Velocities
@@ -28,7 +28,7 @@ Image credit: NASA
 ````
 `````
 
-The most popular method is the transit method. Using this technique, astronomers can get information about the size of the planet and the radius of its orbit, as well as the inclination. Let's explore some real data taken using this method.
+The most popular method is the transit method. Using this technique, astronomers can get information about the size of the planet and the radius of its orbit, as well as an estimate of the inclination. Let's explore some real data taken using this method.
 
 The figure below was taken from a recent publication by Crossfield et al. (2017) in the Astronomical Journal. Can you find the planet? Do you see anything else? If so, what do you think it implies?
 
