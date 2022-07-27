@@ -151,7 +151,7 @@ def square_dip(times, fluxes, planet_radius, period):
     star_radius = 1 * 696.34e6  # Convert from solar radii to meters
     planet_radius = planet_radius * 69.911e6  # Convert from Jupiter radii to meters
 
-    # We'll convert the inclination to radius
+    # We'll convert the inclination to radians
     i = np.deg2rad(89)
 
     # Calculate the semi-major axis of the orbit
@@ -193,7 +193,7 @@ def square_dip(times, fluxes, planet_radius, period):
 
 Let's test it out with a $5 \; \mathrm{M_{Jupiter}}$ planet and a period of 4 days. **Remember** our normalized flux from the star _without_ any transiting exoplanets is defined to be 1.
 
-```{code-cell}
+```{code-cell} ipython3
 import matplotlib.pyplot as plt
 
 times = np.linspace(0, 10, 1000)
@@ -210,12 +210,12 @@ ax.set_ylabel("Normalized Flux")
 
 This looks great, but a little unrealistic. Let's add a function that applies some noise to our data.
 
-```{code-cell}
+```{code-cell} ipython3
 def add_noise(fluxes, limit):
     return fluxes + np.random.normal(0, limit, len(fluxes))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 import matplotlib.pyplot as plt
 
 times = np.linspace(0, 10, 1000)
@@ -236,7 +236,7 @@ ax.set_ylabel("Normalized Flux")
 
 Exoplantary systems often have more than just a single planet. Let's try adding a second planet with a mass of $3 \; \mathrm{M_{Jupiter}}$ and see how that changes our light curve.
 
-```{code-cell}
+```{code-cell} ipython3
 import matplotlib.pyplot as plt
 
 times = np.linspace(0, 10, 1000)
