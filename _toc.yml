@@ -15,6 +15,9 @@ parts:
   - file: day_two/analyzing-published-data
   - file: day_two/making-our-own-data
   - file: day_two/defining-a-model
+- caption: Day 3
+  chapters:
+  - file: day_three/analyzing-kepler-lightcurves
 - caption: Reference
   chapters:
   - file: reference/intro_to_colab_notebooks
