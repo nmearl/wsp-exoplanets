@@ -53,7 +53,7 @@ Now we're going to modify our `square_dip` function so that we can use the provi
 ```{code-cell} ipython3
 import numpy as np
 
-def square_dip(times, start_time, star_mass, star_radius, planet_radius, period):
+def square_dip(times, fluxes, start_time, star_mass, star_radius, planet_radius, period):
     """
     Let's add some comments to our custom function to make sure we don't 
     forget what it does.
@@ -62,6 +62,8 @@ def square_dip(times, start_time, star_mass, star_radius, planet_radius, period)
     ----------
     times : array
         The observation times of our exoplanet in days.
+    fluxes : array
+        The flux we anticipate seeing from the star before adding a planet.
     start_time : float
         The start time of the first transit, in days.
     star_mass : float
@@ -83,7 +85,6 @@ def square_dip(times, start_time, star_mass, star_radius, planet_radius, period)
     times = times * 86400
     period = period * 86400
     start_time = start_time * 86400
-    fluxes = np.ones(len(times))
 
     # Assume we're orbiting a Sun-like parent star 
     # with an 89 degree incline
@@ -143,12 +144,13 @@ import matplotlib.pyplot as plt
 # Get the observed data from the table. Note that we add 1 to the flux decrement.
 times = kepler_435b_tab['TIME']
 data = kepler_435b_tab['LC_DETREND'] + 1
+fluxes = np.ones(len(times))
 
 # Now plot it!
 f, ax = plt.subplots(dpi=150)
 
 ax.scatter(times, data)
-ax.plot(times, square_dip(times, start_time=134.448, star_mass=1.538, star_radius=3.21, planet_radius=1.99, period=8.6001536), color='red')
+ax.plot(times, square_dip(times, fluxes, start_time=134.448, star_mass=1.538, star_radius=3.21, planet_radius=1.99, period=8.6001536), color='red')
 ax.set_xlim(132, 137)
 ax.set_xlabel("Time [days]")
 ax.set_ylabel("Normalized Flux")
