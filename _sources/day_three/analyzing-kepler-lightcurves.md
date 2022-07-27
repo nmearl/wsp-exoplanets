@@ -15,7 +15,7 @@ kernelspec:
 
 # Exploring Confirmed Planets
 
-Now that you have an understanding of stellar light curves and what we can learn from them, let’s explore some archived Kepler data for confirmed planets. To start, visit [this following link](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets). 
+Now that you have an understanding of stellar light curves and what we can learn from them, let’s explore some archived Kepler data for confirmed planets. To start, visit [this following link](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS). 
 
 This will bring you to the search page for the database of confirmed planets. We are going to set some parameters in order to limit our search to large, short period planets with deep transit depths (which, as you discovered earlier, are the easiest planets to detect with this method). In order to do so, take the following steps: 
 
@@ -24,7 +24,7 @@ This will bring you to the search page for the database of confirmed planets. We
 3. Let's just look at planets that have been observed by Kepler, so in the "Host Name" column, write "kepler". This way, we can go and readily look at the Kepler light curves which have all been made public.
 4. As an example, let's choose Kepler 435. To find it easily, click on the down arrow button in the "Planet Radius" column to sort by decreasing radii. (You'll later choose your own planet to present on, so make sure to refer back to these instructions.)
 5. Clicking on the name will bring you to a page with more detailed information on your planet. Among this information, you'll find  estimates quoted from the literature for various parameters, and even some images in the top right of what that region of sky looks like in different wavebands (you may want to include these images in your presentation for whichever planet you choose). 
-6. Note at the top of the page, under the heading "Object and Aliases", there will be some information on what name that system is cross-listed as in a few different telescopes and catalogs. (Write down these names!) Find the number that follows the letters "KIC". In our case, this is "KIC 7529266  b". Copy this number, and paste it into the "Kepler ID" field in [this following link](https://exoplanetarchive.ipac.caltech.edu/applications/ETSS/Kepler_index.html), and hit enter. 
+6. Note at the top of the page, under the heading "Object and Aliases", there will be some information on what name that system is cross-listed as in a few different telescopes and catalogs. (Write down these names!) Find the number that follows the letters "KIC". In our case, this is "KIC 7529266  b". Copy this number, and paste it into the "Kepler ID" field in [this following link](https://exoplanetarchive.ipac.caltech.edu/), and hit enter. 
     * Important: when picking a planet on your own, if it does not have a KIC ID number listed in "Object and Aliases", go back and choose a different planet until you find one that does.
 7. Choose, say, the last row in the table that comes up, and click on the "DV Time Series" link. This will take you to a page where it plots for you a light curve of your star, and the observed transiting planet signature. You can zoom in on the light curve by clicking and dragging to form a rectangle that encompasses the data you want to zoom in on, or by clicking the magnifying glass at the bottom.
 8. By default, it will plot for you in the x-axis column "TIME", and in the y-axis column it plots "LC_INIT". In other words, you are seeing time on the x-axis and on the y-axis you are seeing the initial, *raw* light curve. Play around with the other possible columns for your x and y inputs.
@@ -53,7 +53,7 @@ Now we're going to modify our `square_dip` function so that we can use the provi
 ```{code-cell} ipython3
 import numpy as np
 
-def square_dip(times, start_time, star_mass, star_radius, planet_radius, period):
+def square_dip(times, fluxes, start_time, star_mass, star_radius, planet_radius, period):
     """
     Let's add some comments to our custom function to make sure we don't 
     forget what it does.
@@ -62,6 +62,8 @@ def square_dip(times, start_time, star_mass, star_radius, planet_radius, period)
     ----------
     times : array
         The observation times of our exoplanet in days.
+    fluxes : array
+        The flux we anticipate seeing from the star before adding a planet.
     start_time : float
         The start time of the first transit, in days.
     star_mass : float
@@ -83,7 +85,6 @@ def square_dip(times, start_time, star_mass, star_radius, planet_radius, period)
     times = times * 86400
     period = period * 86400
     start_time = start_time * 86400
-    fluxes = np.ones(len(times))
 
     # Assume we're orbiting a Sun-like parent star 
     # with an 89 degree incline
@@ -143,12 +144,13 @@ import matplotlib.pyplot as plt
 # Get the observed data from the table. Note that we add 1 to the flux decrement.
 times = kepler_435b_tab['TIME']
 data = kepler_435b_tab['LC_DETREND'] + 1
+fluxes = np.ones(len(times))
 
 # Now plot it!
 f, ax = plt.subplots(dpi=150)
 
 ax.scatter(times, data)
-ax.plot(times, square_dip(times, start_time=134.448, star_mass=1.538, star_radius=3.21, planet_radius=1.99, period=8.6001536), color='red')
+ax.plot(times, square_dip(times, fluxes, start_time=134.448, star_mass=1.538, star_radius=3.21, planet_radius=1.99, period=8.6001536), color='red')
 ax.set_xlim(132, 137)
 ax.set_xlabel("Time [days]")
 ax.set_ylabel("Normalized Flux")
