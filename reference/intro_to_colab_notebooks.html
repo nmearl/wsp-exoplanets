@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Defining a Model" href="../day_two/defining-a-model.html" />
+    <link rel="prev" title="Exploring Confirmed Planets" href="../day_three/analyzing-kepler-lightcurves.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -160,6 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../day_two/defining-a-model.html">
    Defining a Model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Day 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_three/analyzing-kepler-lightcurves.html">
+   Exploring Confirmed Planets
   </a>
  </li>
 </ul>
@@ -768,6 +780,187 @@ title="Print to PDF"
 </div>
 </div>
 <p><img src=https://img.icons8.com/nolan/2x/laptop.png width="30"> <strong>Exercise</strong>: Make an array from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(10\)</span>, in steps of <span class="math notranslate nohighlight">\(0.5\)</span>, first using <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> and then using <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
+
+<span class="n">kepler_435b_tab</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;../day_three/static/KIC_7529266.tbl&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.ipac&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the data in the table</span>
+<span class="n">kepler_435b_tab</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><i>Table length=6607</i>
+<table id="table11386442656" class="table-striped table-bordered table-condensed">
+<thead><tr><th>set</th><th>TIME</th><th>LC_DETREND</th></tr></thead>
+<thead><tr><th>int64</th><th>float64</th><th>float64</th></tr></thead>
+<tr><td>0</td><td>131.5123221</td><td>-1.8691166e-05</td></tr>
+<tr><td>0</td><td>131.5327566</td><td>0.00012411148</td></tr>
+<tr><td>0</td><td>131.5531911</td><td>0.00010100434</td></tr>
+<tr><td>0</td><td>131.5736255</td><td>-3.9460381e-05</td></tr>
+<tr><td>0</td><td>131.5940599</td><td>6.0529164e-06</td></tr>
+<tr><td>0</td><td>131.6144945</td><td>1.3926704e-05</td></tr>
+<tr><td>0</td><td>131.6349288</td><td>0.00019029972</td></tr>
+<tr><td>0</td><td>131.6553633</td><td>-5.6887344e-05</td></tr>
+<tr><td>0</td><td>131.6757979</td><td>0.00022315617</td></tr>
+<tr><td>0</td><td>131.6962323</td><td>0.00010017023</td></tr>
+<tr><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>0</td><td>279.1048747</td><td>-0.0001297064</td></tr>
+<tr><td>0</td><td>279.1253076</td><td>-4.0912091e-05</td></tr>
+<tr><td>0</td><td>279.1457404</td><td>-7.7777127e-05</td></tr>
+<tr><td>0</td><td>279.1661731</td><td>-0.00031218003</td></tr>
+<tr><td>0</td><td>279.186606</td><td>0.00018399901</td></tr>
+<tr><td>0</td><td>279.2070387</td><td>6.2849766e-05</td></tr>
+<tr><td>0</td><td>279.2274715</td><td>-0.00010718888</td></tr>
+<tr><td>0</td><td>279.2479044</td><td>-0.000244297</td></tr>
+<tr><td>0</td><td>279.2683371</td><td>0.00024491089</td></tr>
+<tr><td>0</td><td>279.2887699</td><td>0.00014069059</td></tr>
+</table></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load columns from the table into Python variables</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">kepler_435b_tab</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">kepler_435b_tab</span><span class="p">[</span><span class="s1">&#39;LC_DETREND&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># times = np.linspace(old_times[0], old_times[-1], len(old_times) * 3)</span>
+<span class="c1"># model = np.interp(times, old_times, old_model)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">square_dip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">star_mass</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">star_radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">planet_radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Let&#39;s add some comments to our custom function to make sure we don&#39;t </span>
+<span class="sd">    forget what it does.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    times : array</span>
+<span class="sd">        The observation times of our exoplanet in days.</span>
+<span class="sd">    fluxes : array</span>
+<span class="sd">        The flux we anticipate seeing from the star before adding a planet.</span>
+<span class="sd">    planet_radius : float</span>
+<span class="sd">        The radius of our exoplanet, in Jupiter radii.</span>
+<span class="sd">    period : float</span>
+<span class="sd">        How often the our planet transits in front of the star, in days.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    flux : array</span>
+<span class="sd">        The values of the normalized amount of light received from the</span>
+<span class="sd">        parent star.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Convert our times and period from days to seconds</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">times</span> <span class="o">*</span> <span class="mi">86400</span>
+    <span class="n">period</span> <span class="o">=</span> <span class="n">period</span> <span class="o">*</span> <span class="mi">86400</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">start_time</span> <span class="o">*</span> <span class="mi">86400</span>
+    <span class="n">fluxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+
+    <span class="c1"># Assume we&#39;re orbiting a Sun-like parent star </span>
+    <span class="c1"># with an 89 degree incline</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="mf">6.67e-11</span>  <span class="c1"># Gravitational constant in the MKS system</span>
+    <span class="n">star_mass</span> <span class="o">=</span> <span class="n">star_mass</span> <span class="o">*</span> <span class="mf">1.989e30</span>  <span class="c1"># Convert from solar masses in kilograms</span>
+    <span class="n">star_radius</span> <span class="o">=</span> <span class="n">star_radius</span> <span class="o">*</span> <span class="mf">6.957e8</span>  <span class="c1"># Convert from solar radii to meters</span>
+    <span class="n">planet_radius</span> <span class="o">=</span> <span class="n">planet_radius</span> <span class="o">*</span> <span class="mf">7.1492000e7</span>  <span class="c1"># Convert from Jupiter radii to meters</span>
+
+    <span class="c1"># We&#39;ll convert the inclination to radians</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">89</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the semi-major axis of the orbit</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">((</span><span class="n">period</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">star_mass</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Semi-major axis:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+    <span class="c1"># The impact parameter of the orbit</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="n">star_radius</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Impact parameter:&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+    <span class="c1"># Calculate how long it takes the planet to cross the star</span>
+    <span class="n">transit_duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">period</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">star_radius</span> <span class="o">+</span> <span class="n">planet_radius</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">star_radius</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transit duration: &quot;</span><span class="p">,</span> <span class="n">transit_duration</span><span class="p">)</span>
+    
+    <span class="c1"># Now calculate the transit depth, i.e. how much light is blocked when it transits</span>
+    <span class="n">transit_depth</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">planet_radius</span> <span class="o">/</span> <span class="n">star_radius</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transit Depth:&quot;</span><span class="p">,</span> <span class="n">transit_depth</span><span class="p">)</span>
+
+    <span class="c1"># Let&#39;s randomly choose a time for our first transit</span>
+    <span class="c1"># first_transit = np.random.uniform(0, times[-1] * 0.2)</span>
+    
+    <span class="n">transit_start</span> <span class="o">=</span> <span class="n">start_time</span>
+    <span class="n">transit_end</span> <span class="o">=</span> <span class="n">transit_start</span> <span class="o">+</span> <span class="n">transit_duration</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="c1"># If our time is during a transit, add the transit depth. However, if there</span>
+        <span class="c1"># are multiple planets, only take the deepest transit depth.</span>
+        <span class="k">if</span> <span class="n">transit_start</span> <span class="o">&lt;</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">transit_end</span><span class="p">:</span>
+            <span class="n">fluxes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">transit_depth</span><span class="p">,</span> <span class="n">fluxes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1"># If we&#39;ve just exited the tranit, reset the</span>
+        <span class="c1"># our variables for the next transit</span>
+        <span class="k">elif</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="n">transit_end</span><span class="p">:</span>
+            <span class="n">transit_start</span> <span class="o">+=</span> <span class="n">period</span>
+            <span class="n">transit_end</span> <span class="o">=</span> <span class="n">transit_start</span> <span class="o">+</span> <span class="n">transit_duration</span>
+
+    <span class="k">return</span> <span class="n">fluxes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> widget
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># ax.plot(times, square_dip(times, *popt), color=&#39;k&#39;, zorder=10)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">square_dip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="mf">134.448</span><span class="p">,</span> <span class="n">star_mass</span><span class="o">=</span><span class="mf">1.538</span><span class="p">,</span> <span class="n">star_radius</span><span class="o">=</span><span class="mf">3.21</span><span class="p">,</span> <span class="n">planet_radius</span><span class="o">=</span><span class="mf">1.99</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mf">8.6001536</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span> <span class="mi">137</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Semi-major axis: 14184010328.369392
+Impact parameter: 0.11084786212829904
+Transit duration:  39580.176631360395
+Transit Depth: 0.9959414866891165
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(132.0, 137.0)
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "0b00ef746b6f43e79eeb442679069060", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">2455010.64241</span> <span class="o">-</span> <span class="mi">2454833</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>177.64240999985486
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -798,11 +991,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../day_two/defining-a-model.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../day_three/analyzing-kepler-lightcurves.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Defining a Model</p>
+            <p class="prev-next-title">Exploring Confirmed Planets</p>
         </div>
     </a>
 </div>

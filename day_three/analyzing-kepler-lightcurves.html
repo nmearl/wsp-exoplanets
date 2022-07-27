@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Defining a Model &#8212; Exoplanets</title>
+    <title>Exploring Confirmed Planets &#8212; Exoplanets</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Exploring Confirmed Planets" href="../day_three/analyzing-kepler-lightcurves.html" />
-    <link rel="prev" title="Making Our Own Data" href="making-our-own-data.html" />
+    <link rel="next" title="Introduction to Colab" href="../reference/intro_to_colab_notebooks.html" />
+    <link rel="prev" title="Defining a Model" href="../day_two/defining-a-model.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -147,19 +147,19 @@ const thebe_selector_output = ".output, .cell_output"
   Day 2
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="analyzing-published-data.html">
+  <a class="reference internal" href="../day_two/analyzing-published-data.html">
    Analyzing Published Data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="making-our-own-data.html">
+  <a class="reference internal" href="../day_two/making-our-own-data.html">
    Making Our Own Data
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_two/defining-a-model.html">
    Defining a Model
   </a>
  </li>
@@ -169,9 +169,9 @@ const thebe_selector_output = ".output, .cell_output"
   Day 3
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../day_three/analyzing-kepler-lightcurves.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Exploring Confirmed Planets
   </a>
  </li>
@@ -246,7 +246,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/nmearl/wsp-exoplanets/main?urlpath=tree/docs/day_two/defining-a-model.md"
+        <a href="https://mybinder.org/v2/gh/nmearl/wsp-exoplanets/main?urlpath=tree/docs/day_three/analyzing-kepler-lightcurves.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -306,7 +306,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/nmearl/wsp-exoplanets/issues/new?title=Issue%20on%20page%20%2Fday_two/defining-a-model.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/nmearl/wsp-exoplanets/issues/new?title=Issue%20on%20page%20%2Fday_three/analyzing-kepler-lightcurves.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -334,7 +334,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/day_two/defining-a-model.ipynb"
+        <a href="../_sources/day_three/analyzing-kepler-lightcurves.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -351,7 +351,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="../_sources/day_two/defining-a-model.md"
+        <a href="../_sources/day_three/analyzing-kepler-lightcurves.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -411,28 +411,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setting-up-our-function">
-   Setting up our function
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#converting-math-to-code">
-   Converting math to code
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generating-our-light-curve">
-   Generating our light curve
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inspecting-the-results">
-   Inspecting the results
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#including-more-planets">
-   Including more planets
+  <a class="reference internal nav-link" href="#plotting-on-your-own">
+   Plotting on your own
   </a>
  </li>
 </ul>
@@ -444,7 +424,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Defining a Model</h1>
+                <h1>Exploring Confirmed Planets</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -455,28 +435,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setting-up-our-function">
-   Setting up our function
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#converting-math-to-code">
-   Converting math to code
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generating-our-light-curve">
-   Generating our light curve
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inspecting-the-results">
-   Inspecting the results
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#including-more-planets">
-   Including more planets
+  <a class="reference internal nav-link" href="#plotting-on-your-own">
+   Plotting on your own
   </a>
  </li>
 </ul>
@@ -489,15 +449,51 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="defining-a-model">
-<h1>Defining a Model<a class="headerlink" href="#defining-a-model" title="Permalink to this headline">#</a></h1>
-<p>To begin analyzing exoplanet data, we need to devise a model that can take in data about the exoplanetary system and produce a realistic light curve. Doing this allows us to apply the physical understanding of exoplanets to the light curve data we observe using telescopes. Here, we’ll develop that model and test it out by producing some mock light curve data.</p>
-<section id="setting-up-our-function">
-<h2>Setting up our function<a class="headerlink" href="#setting-up-our-function" title="Permalink to this headline">#</a></h2>
-<p>To make our own exoplanet light curves, we need to create a function that takes in the <strong>times of our observation</strong>, the <strong>radius of the planet</strong> whose light curve we want to model, and the <strong>period</strong> of the transits that occur during our observation:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="exploring-confirmed-planets">
+<h1>Exploring Confirmed Planets<a class="headerlink" href="#exploring-confirmed-planets" title="Permalink to this headline">#</a></h1>
+<p>Now that you have an understanding of stellar light curves and what we can learn from them, let’s explore some archived Kepler data for confirmed planets. To start, visit <a class="reference external" href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&amp;config=planets">this following link</a>.</p>
+<p>This will bring you to the search page for the database of confirmed planets. We are going to set some parameters in order to limit our search to large, short period planets with deep transit depths (which, as you discovered earlier, are the easiest planets to detect with this method). In order to do so, take the following steps:</p>
+<ol class="simple">
+<li><p>In the column titled “Planet Radius [Jupiter radii]”, type in  &gt; 0.8. Note that this is in units of Jupiter radii. This value will ensure that the depth of our transit signal is deep and easy to detect.</p></li>
+<li><p>In the column titled “Orbital Period [days]”, let’s make it less than 20, say. For this, you have to type &lt; 20. This will make it more likely that you’ll see multiple transits during your observation.</p></li>
+<li><p>Let’s just look at planets that have been observed by Kepler, so in the “Host Name” column, write “kepler”. This way, we can go and readily look at the Kepler light curves which have all been made public.</p></li>
+<li><p>As an example, let’s choose Kepler 435. To find it easily, click on the down arrow button in the “Planet Radius” column to sort by decreasing radii. (You’ll later choose your own planet to present on, so make sure to refer back to these instructions.)</p></li>
+<li><p>Clicking on the name will bring you to a page with more detailed information on your planet. Among this information, you’ll find  estimates quoted from the literature for various parameters, and even some images in the top right of what that region of sky looks like in different wavebands (you may want to include these images in your presentation for whichever planet you choose).</p></li>
+<li><p>Note at the top of the page, under the heading “Object and Aliases”, there will be some information on what name that system is cross-listed as in a few different telescopes and catalogs. (Write down these names!) Find the number that follows the letters “KIC”. In our case, this is “KIC 7529266  b”. Copy this number, and paste it into the “Kepler ID” field in <a class="reference external" href="https://exoplanetarchive.ipac.caltech.edu/applications/ETSS/Kepler_index.html">this following link</a>, and hit enter.</p>
+<ul class="simple">
+<li><p>Important: when picking a planet on your own, if it does not have a KIC ID number listed in “Object and Aliases”, go back and choose a different planet until you find one that does.</p></li>
+</ul>
+</li>
+<li><p>Choose, say, the last row in the table that comes up, and click on the “DV Time Series” link. This will take you to a page where it plots for you a light curve of your star, and the observed transiting planet signature. You can zoom in on the light curve by clicking and dragging to form a rectangle that encompasses the data you want to zoom in on, or by clicking the magnifying glass at the bottom.</p></li>
+<li><p>By default, it will plot for you in the x-axis column “TIME”, and in the y-axis column it plots “LC_INIT”. In other words, you are seeing time on the x-axis and on the y-axis you are seeing the initial, <em>raw</em> light curve. Play around with the other possible columns for your x and y inputs.</p>
+<ul class="simple">
+<li><p>For example, discuss what “LC_DETREND” means, and why it looks better than “LC_INIT”.</p></li>
+<li><p>Try plotting “PHASE [days]” on the x-axis. What does this do?</p></li>
+</ul>
+</li>
+<li><p>Once you are happy with how it looks, download a PNG of the light curve using the second-from-the-right icon at the bottom. Note that you can save multiple snapshots like this, for instance, if you want a zoomed-in and zoomed-out view, or if you want to plot a phase graph and a time graph.</p></li>
+</ol>
+<p>Congratulations; you’ve just characterized a real planet!  You’ve now joined hundreds of astronomers around the world who use Kepler data to further our understanding of exoplanets.</p>
+<section id="plotting-on-your-own">
+<h2>Plotting on your own<a class="headerlink" href="#plotting-on-your-own" title="Permalink to this headline">#</a></h2>
+<p>If you want a bigger challenge, and/or more freedom when making your plots, do the following in lieu of step 10 above.</p>
+<p>From the graph made for you above, once you’ve zoomed in to an appropriate region and plotted the desired columns, you can download the data currently in that graph window as a table, so that you can make your own more unique and sophistacated graph. You do this by clicking on the right-most icon at the bottom of your graph labeled “Download table of plotted data”, right next to the “Download as PNG” button. Here, I’ve downloaded “MODEL_INIT” plotted against “TIME” for the first 300 or so days, as a file named “KIC_7529266.tbl”</p>
+<p>Once this file has been downloaded and moved into my current working folder (i.e. Day 3), I can load it into Python like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
+
+<span class="n">kepler_435b_tab</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;./static/KIC_7529266.tbl&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.ipac&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’re going to modify our <code class="docutils literal notranslate"><span class="pre">square_dip</span></code> function so that we can use the provided parameters from the Kepler catalog to model the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="k">def</span> <span class="nf">square_dip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">fluxes</span><span class="p">,</span> <span class="n">planet_radius</span><span class="p">,</span> <span class="n">period</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">square_dip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">star_mass</span><span class="p">,</span> <span class="n">star_radius</span><span class="p">,</span> <span class="n">planet_radius</span><span class="p">,</span> <span class="n">period</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Let&#39;s add some comments to our custom function to make sure we don&#39;t </span>
 <span class="sd">    forget what it does.</span>
@@ -506,8 +502,12 @@ title="Print to PDF"
 <span class="sd">    ----------</span>
 <span class="sd">    times : array</span>
 <span class="sd">        The observation times of our exoplanet in days.</span>
-<span class="sd">    fluxes : array</span>
-<span class="sd">        The flux we anticipate seeing from the star before adding a planet.</span>
+<span class="sd">    start_time : float</span>
+<span class="sd">        The start time of the first transit, in days.</span>
+<span class="sd">    star_mass : float</span>
+<span class="sd">        The mass of the parent star, in solar masses.</span>
+<span class="sd">    star_radius : float</span>
+<span class="sd">        The radius of the parent star, in solar radii.</span>
 <span class="sd">    planet_radius : float</span>
 <span class="sd">        The radius of our exoplanet, in Jupiter radii.</span>
 <span class="sd">    period : float</span>
@@ -519,53 +519,42 @@ title="Print to PDF"
 <span class="sd">        The values of the normalized amount of light received from the</span>
 <span class="sd">        parent star.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</section>
-<section id="converting-math-to-code">
-<h2>Converting math to code<a class="headerlink" href="#converting-math-to-code" title="Permalink to this headline">#</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We’ll be doing all our calculations in the meters-kilograms-seconds (or MKS) system, so we need to be sure that we pay special mind to the assumed units.</p>
-</div>
-<p>Let’s add in the code. We’ll assume that the star the planet orbits is Sun-like (i.e. has a mass of <span class="math notranslate nohighlight">\(1 \; \mathrm{M_\odot}\)</span>), at an inclination of 89 degrees.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="o">...</span>
     <span class="c1"># Convert our times and period from days to seconds</span>
     <span class="n">times</span> <span class="o">=</span> <span class="n">times</span> <span class="o">*</span> <span class="mi">86400</span>
     <span class="n">period</span> <span class="o">=</span> <span class="n">period</span> <span class="o">*</span> <span class="mi">86400</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">start_time</span> <span class="o">*</span> <span class="mi">86400</span>
+    <span class="n">fluxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
 
     <span class="c1"># Assume we&#39;re orbiting a Sun-like parent star </span>
     <span class="c1"># with an 89 degree incline</span>
     <span class="n">G</span> <span class="o">=</span> <span class="mf">6.67e-11</span>  <span class="c1"># Gravitational constant in the MKS system</span>
-    <span class="n">star_mass</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mf">1.989e30</span>  <span class="c1"># Convert from solar masses in kilograms</span>
-    <span class="n">star_radius</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mf">696.34e6</span>  <span class="c1"># Convert from solar radii to meters</span>
-    <span class="n">planet_radius</span> <span class="o">=</span> <span class="n">planet_radius</span> <span class="o">*</span> <span class="mf">69.911e6</span>  <span class="c1"># Convert from Jupiter radii to meters</span>
+    <span class="n">star_mass</span> <span class="o">=</span> <span class="n">star_mass</span> <span class="o">*</span> <span class="mf">1.989e30</span>  <span class="c1"># Convert from solar masses in kilograms</span>
+    <span class="n">star_radius</span> <span class="o">=</span> <span class="n">star_radius</span> <span class="o">*</span> <span class="mf">6.957e8</span>  <span class="c1"># Convert from solar radii to meters</span>
+    <span class="n">planet_radius</span> <span class="o">=</span> <span class="n">planet_radius</span> <span class="o">*</span> <span class="mf">7.1492000e7</span>  <span class="c1"># Convert from Jupiter radii to meters</span>
 
     <span class="c1"># We&#39;ll convert the inclination to radians</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">89</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">85.51</span><span class="p">)</span>
 
     <span class="c1"># Calculate the semi-major axis of the orbit</span>
     <span class="n">a</span> <span class="o">=</span> <span class="p">((</span><span class="n">period</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">star_mass</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Semi-major axis:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">/</span><span class="mf">1.496e11</span><span class="p">,</span> <span class="s2">&quot;AU&quot;</span><span class="p">)</span>
 
     <span class="c1"># The impact parameter of the orbit</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="n">star_radius</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Impact parameter:&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
     <span class="c1"># Calculate how long it takes the planet to cross the star</span>
-    <span class="n">transit_duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">period</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">star_radius</span> <span class="o">+</span> <span class="n">planet_radius</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="p">(</span><span class="n">star_radius</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">transit_duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">period</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">star_radius</span> <span class="o">+</span> <span class="n">planet_radius</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">star_radius</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transit duration: &quot;</span><span class="p">,</span> <span class="n">transit_duration</span><span class="o">/</span><span class="mi">86400</span><span class="p">,</span> <span class="s2">&quot;days&quot;</span><span class="p">)</span>
     
     <span class="c1"># Now calculate the transit depth, i.e. how much light is blocked when it transits</span>
     <span class="n">transit_depth</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">planet_radius</span> <span class="o">/</span> <span class="n">star_radius</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</section>
-<section id="generating-our-light-curve">
-<h2>Generating our light curve<a class="headerlink" href="#generating-our-light-curve" title="Permalink to this headline">#</a></h2>
-<p>At this point, we have our calculations figured out. Now we need to create the flux array that includes the dip in brightness caused by the transit. We’ll do that by randomly deciding on a <em>first</em> transit start time, then calculate all the other transits based on our given period.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="o">...</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transit Depth:&quot;</span><span class="p">,</span> <span class="n">transit_depth</span><span class="p">)</span>
+
     <span class="c1"># Let&#39;s randomly choose a time for our first transit</span>
-    <span class="n">first_transit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">)</span>
+    <span class="c1"># first_transit = np.random.uniform(0, times[-1] * 0.2)</span>
     
-    <span class="n">transit_start</span> <span class="o">=</span> <span class="n">first_transit</span>
+    <span class="n">transit_start</span> <span class="o">=</span> <span class="n">start_time</span>
     <span class="n">transit_end</span> <span class="o">=</span> <span class="n">transit_start</span> <span class="o">+</span> <span class="n">transit_duration</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)):</span>
@@ -585,109 +574,43 @@ title="Print to PDF"
     <span class="k">return</span> <span class="n">fluxes</span>
 </pre></div>
 </div>
-</section>
-<section id="inspecting-the-results">
-<h2>Inspecting the results<a class="headerlink" href="#inspecting-the-results" title="Permalink to this headline">#</a></h2>
-<p>Let’s test it out with a <span class="math notranslate nohighlight">\(5 \; \mathrm{M_{Jupiter}}\)</span> planet and a period of 4 days. <strong>Remember</strong> our normalized flux from the star <em>without</em> any transiting exoplanets is defined to be 1.</p>
+</div>
+</div>
+<p>Refer back to the catalog on the website. For our chosen exoplanet, we find that <span class="math notranslate nohighlight">\(t_\mathrm{start} = 134.4 \; \mathrm{days}\)</span>, <span class="math notranslate nohighlight">\(M_s = 1.538 \; \mathrm{M_\odot}\)</span>, <span class="math notranslate nohighlight">\(R_s = 3.21 \; \mathrm{R_\odot}\)</span>, <span class="math notranslate nohighlight">\(R_p = 1.99 \; \mathrm{R_Jup}\)</span>, and <span class="math notranslate nohighlight">\(P = 8.6 \; \mathrm{days}\)</span>, so:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">fluxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+<span class="c1"># Get the observed data from the table. Note that we add 1 to the flux decrement.</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">kepler_435b_tab</span><span class="p">[</span><span class="s1">&#39;TIME&#39;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">kepler_435b_tab</span><span class="p">[</span><span class="s1">&#39;LC_DETREND&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
 
-<span class="n">measurements</span> <span class="o">=</span> <span class="n">square_dip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">fluxes</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-
+<span class="c1"># Now plot it!</span>
 <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time [day]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">square_dip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">start_time</span><span class="o">=</span><span class="mf">134.448</span><span class="p">,</span> <span class="n">star_mass</span><span class="o">=</span><span class="mf">1.538</span><span class="p">,</span> <span class="n">star_radius</span><span class="o">=</span><span class="mf">3.21</span><span class="p">,</span> <span class="n">planet_radius</span><span class="o">=</span><span class="mf">1.99</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mf">8.6001536</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">132</span><span class="p">,</span> <span class="mi">137</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time [days]&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Normalized Flux&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Semi-major axis: 0.09481290326450129 AU
+Impact parameter: 0.4972228879872089
+Transit duration:  0.4067889013456635 days
+Transit Depth: 0.9959414866891165
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Normalized Flux&#39;)
 </pre></div>
 </div>
-<img alt="../_images/defining-a-model_3_1.png" src="../_images/defining-a-model_3_1.png" />
+<img alt="../_images/analyzing-kepler-lightcurves_5_2.png" src="../_images/analyzing-kepler-lightcurves_5_2.png" />
 </div>
 </div>
-<p>This looks great, but a little unrealistic. Let’s add a function that applies some noise to our data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_noise</span><span class="p">(</span><span class="n">fluxes</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">fluxes</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fluxes</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">fluxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
-
-<span class="n">measurements</span> <span class="o">=</span> <span class="n">square_dip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">fluxes</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">measurements_with_noise</span> <span class="o">=</span> <span class="n">add_noise</span><span class="p">(</span><span class="n">measurements</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">measurements_with_noise</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time [day]&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Normalized Flux&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Normalized Flux&#39;)
-</pre></div>
-</div>
-<img alt="../_images/defining-a-model_6_1.png" src="../_images/defining-a-model_6_1.png" />
-</div>
-</div>
-</section>
-<section id="including-more-planets">
-<h2>Including more planets<a class="headerlink" href="#including-more-planets" title="Permalink to this headline">#</a></h2>
-<p>Exoplantary systems often have more than just a single planet. Let’s try adding a second planet with a mass of <span class="math notranslate nohighlight">\(3 \; \mathrm{M_{Jupiter}}\)</span> and see how that changes our light curve.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">fluxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
-
-<span class="n">measurements</span> <span class="o">=</span> <span class="n">square_dip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">fluxes</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">measurements</span> <span class="o">=</span> <span class="n">square_dip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">measurements_with_noise</span> <span class="o">=</span> <span class="n">add_noise</span><span class="p">(</span><span class="n">measurements</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">measurements_with_noise</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time [day]&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Normalized Flux&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Normalized Flux&#39;)
-</pre></div>
-</div>
-<img alt="../_images/defining-a-model_8_1.png" src="../_images/defining-a-model_8_1.png" />
-</div>
-</div>
-<p>Try plotting more exoplanet light curves using different masses and radii as well as various numbers of exoplanets in the system.</p>
-<div class="tip admonition">
-<p class="admonition-title">Question 1</p>
-<p>In what ways can you imagine that our simulations are simplified, compared to the real universe?</p>
-</div>
-<div class="warning admonition">
-<p class="admonition-title">Challenge</p>
-<p>Assume that a star and a large planet are in circular orbits about a mutual center of mass and are separated by a distance <span class="math notranslate nohighlight">\(a\)</span>. Assume also that the binary inclination angle is <span class="math notranslate nohighlight">\(i\)</span> (defined as the angle between the line-of-sight and the orbital angular momentum vector, with 0<span class="math notranslate nohighlight">\(^◦\)</span> ≤ <span class="math notranslate nohighlight">\(i\)</span> ≤ 90<span class="math notranslate nohighlight">\(^◦\)</span>) and that the stellar and planetary radii are R<span class="math notranslate nohighlight">\(_1\)</span> and R<span class="math notranslate nohighlight">\(_2\)</span>, respectively. Find an expression for the smallest inclination angle that will just barely produce a transit signal in your light curve.</p>
-</div>
+<p>Not bad for our simple model!</p>
 </section>
 </section>
 
@@ -704,7 +627,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./day_two"
+            path: "./day_three"
         },
         predefinedOutput: true
     }
@@ -718,17 +641,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="making-our-own-data.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../day_two/defining-a-model.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Making Our Own Data</p>
+            <p class="prev-next-title">Defining a Model</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../day_three/analyzing-kepler-lightcurves.html" title="next page">
+    <a class='right-next' id="next-link" href="../reference/intro_to_colab_notebooks.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exploring Confirmed Planets</p>
+        <p class="prev-next-title">Introduction to Colab</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
