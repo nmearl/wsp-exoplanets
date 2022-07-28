@@ -30,12 +30,12 @@ How do we detect them all? Try to come up with some ideas (as many as you can th
 Stars that have planets that don’t orbit perfectly around its center, and for massive planets (planets with masses greater than Jupiters), we can detect this "wobble"!
 
 ```{figure} static/barycenter.en.gif
-:name: confirmed-exoplanets
+:name: barcenter
 
 Credit: https://spaceplace.nasa.gov/all-about-exoplanets/en/
 ```
 ```{figure} static/barycenter-side.en.gif
-:name: confirmed-exoplanets
+:name: barycenter-side
 
 Credit: https://spaceplace.nasa.gov/all-about-exoplanets/en/
 ```

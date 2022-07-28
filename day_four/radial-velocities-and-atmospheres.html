@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Radial Velocities and Atmospheres &#8212; Exoplanets</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Colab" href="../reference/intro_to_colab_notebooks.html" />
+    <link rel="prev" title="Exploring Confirmed Planets" href="../day_three/analyzing-kepler-lightcurves.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Exoplanets</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Exploring Distance Worlds: Understanding Exoplanets
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Day 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_one/introduction-to-exoplanets.html">
+   Introduction to Exoplanets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_one/exoplanet-transits.html">
+   Exoplanet Transits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_one/analyzing-light-curves.html">
+   Analyzing Light Curves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_one/generating-fake-data.html">
+   Generating Fake Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Day 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_two/analyzing-published-data.html">
+   Analyzing Published Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_two/making-our-own-data.html">
+   Making Our Own Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_two/defining-a-model.html">
+   Defining a Model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Day 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_three/analyzing-kepler-lightcurves.html">
+   Exploring Confirmed Planets
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Day 4
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Radial Velocities and Atmospheres
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/intro_to_colab_notebooks.html">
+   Introduction to Colab
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/nmearl/wsp-exoplanets/main?urlpath=tree/docs/day_four/radial-velocities-and-atmospheres.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/nmearl/wsp-exoplanets"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/nmearl/wsp-exoplanets/issues/new?title=Issue%20on%20page%20%2Fday_four/radial-velocities-and-atmospheres.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/day_four/radial-velocities-and-atmospheres.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/day_four/radial-velocities-and-atmospheres.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#radial-velocities">
+   Radial Velocities
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Radial Velocities and Atmospheres</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#radial-velocities">
+   Radial Velocities
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="radial-velocities-and-atmospheres">
+<h1>Radial Velocities and Atmospheres<a class="headerlink" href="#radial-velocities-and-atmospheres" title="Permalink to this headline">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Question 1</p>
+<p>How do you think you would go about finding the mass of a planet? How do you think we’ve calculated how much our Earth weighs (i.e. how much mass it has)? Think about what information we would need to be able to do that.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+How to find mass<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">One way to calculate the mass of a planet in a solar system outside of our own, is to look at radial velocity variations.</p>
+</div>
+</details></div>
+<section id="radial-velocities">
+<h2>Radial Velocities<a class="headerlink" href="#radial-velocities" title="Permalink to this headline">#</a></h2>
+<p>When we talk about orbits in a solar sytem, how do we determine who oribts who? In our solar system, we think of it as pretty obvious that our Sun stays still while the planets orbit around it. But what if our Sun was only a few percent bigger than Jupiter: would our Sun still remain put while Jupiter goes around it, or would they orbit each other?</p>
+<p>The fact is that no matter how large our Sun was, it is still “orbiting” around the planets, which in turn orbit the Sun. All of these celestial bodies are orbiting around each other about their center of mass, called the “barycenter” of the system. In the image below, the red cross indicates the barycenter of the system of two objects, one large and one small. Note that the barycenter lies at all times inside the interior of the larger body. The closer this barycenter coincides with the center of the larger object, the less it will jostle around.</p>
+<img alt="https://upload.wikimedia.org/wikipedia/commons/5/59/Orbit3.gif" class="align-right" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Orbit3.gif" />
+<p>Often, this method for detecting planets known as <strong>astrometry</strong>, is rather difficult as changes in stellar positions are usually too small. Not even the best ground-based telescopes can measure stellar changes in position this small, since atmospheric distortions are too large relative to the required precision. As a result, until now no exoplanet has been discovered using this technique. (But it should be noted that the <em>Hubble Space Telescope</em> has confirmed, through astrometry, the existence of a previously-discovered planet in 2002, around a star known as Gliese 876. Also, <em>Gaia</em> is expected to detect thousands of planets through astrometry.)</p>
+<p>The lack of success of this technique however does not mean that we aren’t yet capable of detecting a star’s motion due to the influence of an orbiting planet(s). This is where the <strong>radial velocity</strong> technique comes in. Just as you’ve learned in class, any vector can be broken into distinct components based on your coordinate system. The velocity vector of a star, for example, can be broken up in the same way. Any arbitrary motion of the star can be broken up into a component that’s moving toward or away from you, the observer, and another componenent that’s moving perpendicular to the line of sight. These motions are called, respectively, <em>radial velocity</em>, for the motion that changes in distance along your line of sight (i.e. its radius to you is changing), and the other called <em>proper motion</em>, for the motion that moves the star across the plane of the sky, as illustrated in the figure below.</p>
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f2/Proper_motion.JPG"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f2/Proper_motion.JPG" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Proper_motion.JPG" /></a>
+<div class="tip admonition">
+<p class="admonition-title">Question 2</p>
+<p>Sketch a graph of what you would imagine a star’s radial velocity would like with time, assuming the plane of its orbit around the barycenter of the system it’s in is oriented edge-on (i.e. the orbital angular momentum axis is perpendicular to your line of sight).</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Question 3</p>
+<p>The following link will take you to an applet that shows what kind of radial velocity variations you’ll observe when you vary certain parameters: <a class="reference external" href="http://astro.unl.edu/classaction/animations/extrasolarplanets/radialvelocitysimulator.html">http://astro.unl.edu/classaction/animations/extrasolarplanets/radialvelocitysimulator.html</a></p>
+<p>How does the graph of radial velocity change when you vary: inclination, stellar mass, planet mass, planet radius, and eccentricity of the orbit? What about if you vary the planet’s radius (without touching anything else)? (This parameter’s not an option in this applet, so you’re going to have to think hard here.)</p>
+</div>
+<p>It turns out that the radial velocity variation of a star (let’s assume it has just one planet orbiting it) as a function of time can be expressed in terms of its period <span class="math notranslate nohighlight">\(P\)</span>, orbital inclination <span class="math notranslate nohighlight">\(i\)</span> (where <span class="math notranslate nohighlight">\(0^{\circ} &lt; i &lt; 90^{\circ}\)</span>) and semi-major axis <span class="math notranslate nohighlight">\(a\)</span>, its mass <span class="math notranslate nohighlight">\(M_{\ast}\)</span>, and the mass of the orbiting planet, <span class="math notranslate nohighlight">\(m_p\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-exoplanet-mass">
+<span class="eqno">(8)<a class="headerlink" href="#equation-exoplanet-mass" title="Permalink to this equation">#</a></span>\[v_{r \ast}(t) = \left(\frac{2 \pi}{P}\right) \frac{m_p a}{M_{\ast}} \; sin(i) \; cos\left(\frac{2 \pi t}{P}\right)\]</div>
+<div class="warning admonition">
+<p class="admonition-title">Challenge</p>
+<p>Using python, make a plot of the above radial velocity equation versus phase/period, for a given orbital inclination. See how this plot varies when you change the input value of <span class="math notranslate nohighlight">\(i\)</span>. (Your plot should resemble that in the link above.)</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="mf">6.67e-11</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mi">86400</span><span class="o">*</span><span class="mi">860</span> <span class="c1"># seconds</span>
+<span class="n">star_mass</span> <span class="o">=</span> <span class="mf">1.538</span><span class="o">*</span><span class="mf">1.98e30</span> <span class="c1"># kg</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">planet_mass</span> <span class="o">=</span> <span class="mi">266</span><span class="o">*</span><span class="mf">6.24e24</span> <span class="c1"># kg</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">G</span><span class="o">*</span><span class="n">star_mass</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="c1"># meters</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">86400</span><span class="o">*</span><span class="mi">40</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">v_r</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">P</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">planet_mass</span><span class="o">*</span><span class="n">a</span><span class="o">/</span><span class="n">star_mass</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="n">P</span><span class="p">)</span>
+<span class="c1">#plt.plot(t/86400,v_r)</span>
+
+<span class="n">v_r</span> <span class="o">=</span> <span class="n">v_r</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">v_r</span><span class="p">))</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">86400</span><span class="p">,</span><span class="n">v_r</span><span class="p">,</span><span class="s1">&#39;.k&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (days)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;radial velocity (m/s)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">86400</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="mi">86400</span><span class="p">)])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">v_r</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.18841156066749612
+</pre></div>
+</div>
+<img alt="../_images/radial-velocities-and-atmospheres_1_1.png" src="../_images/radial-velocities-and-atmospheres_1_1.png" />
+</div>
+</div>
+<p>You might be asking yourself how it is that we measure these velocity variations. The answer lies within something called the <strong>spectrum</strong> of the light given off by the star. Since Newton’s times, we’ve known that passing light through a prism will split it up into its consituent parts:</p>
+<a class="reference internal image-reference" href="https://cdn.britannica.com/78/149178-050-F2421B64/light-prism-color-angle-colors-wavelength-wavelengths.jpg"><img alt="https://cdn.britannica.com/78/149178-050-F2421B64/light-prism-color-angle-colors-wavelength-wavelengths.jpg" src="https://cdn.britannica.com/78/149178-050-F2421B64/light-prism-color-angle-colors-wavelength-wavelengths.jpg" /></a>
+<p>Each of these constituent parts are split up as different colors, which correspond to different wavelengths of light. If the white light source happens to pass in front of some carbon-dioxide gas, for example, right before it hits the prism, you will notice some gaps or dark lines in your spectrum. In other words, your spectrum will be missing certain wavelengths of light. The reason is that the atoms in the gas the light passed through on its way to the prism (carbon dioxide atoms in this example) absorbed light of that particular wavelength and removed it from your light spectrum. Based roughly on this principle, we can tell what kinds of atoms make up the light a star is giving off by looking at their spectra (plural for spectrum). (See this link for a nice applet illustrating this point: <a class="reference external" href="https://www.khanacademy.org/computer-programming/interact-absorption-lines/2226438064">https://www.khanacademy.org/computer-programming/interact-absorption-lines/2226438064</a>)</p>
+<p>See this video as well for more on spectroscopy in astronomy: <a class="reference external" href="https://www.khanacademy.org/partner-content/nasa/measuringuniverse/spectroscopy/v/spectroscopy-in-action">https://www.khanacademy.org/partner-content/nasa/measuringuniverse/spectroscopy/v/spectroscopy-in-action</a></p>
+<div class="tip admonition">
+<p class="admonition-title">Question 4</p>
+<p>How can we use light to tell how fast an object (e.g. a star) is moving toward or away from us? If you hold a super bright light (say, a 1000 lumen flash light) ten feet away and move it closer to or further from you, would you be able to tell?</p>
+</div>
+<p>You will have experienced by now that when a car is moving towards you at high speed it emits sound at a high-frequency, then when it passes you and starts moving away it will emit sound at a lower frequency. This is called <strong>Doppler shift</strong>. Watch this video for an example: <a class="reference external" href="https://www.youtube.com/watch?v=p-hBCcmCUPg">https://www.youtube.com/watch?v=p-hBCcmCUPg</a></p>
+<p>In the same way, light that is moving toward you gets shifted to higher frequencies (i.e. it gets blueshifted as a spectral line will move towards the bluer = higher-frequency side of the spectrum), and light that is moving away from you gets shifted to lower frequences (it gets “redshifted”). So if we look at the spectrum of a star, we can tell if it’s moving away from us by looking at how the spectral lines move, and in turn, determine whether something in orbit around it is tuggin at it:</p>
+<figure class="align-default" id="id1">
+<img alt="https://lostintransits.files.wordpress.com/2014/08/rvgif2.gif" src="https://lostintransits.files.wordpress.com/2014/08/rvgif2.gif" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Credit: ESO</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The spectrum shown in the above animation is simplified compared to what it really takes to precisely measure a stellar radial velocity. The following is a spectrum taken with the EXtreme PREcision Spectrograph (EXPRES):</p>
+<a class="reference internal image-reference" href="../_images/expres_spectrum.png"><img alt="../_images/expres_spectrum.png" src="../_images/expres_spectrum.png" style="width: 366.0px; height: 272.8px;" /></a>
+<a class="reference internal image-reference" href="../_images/EXPRES.jpg"><img alt="../_images/EXPRES.jpg" src="../_images/EXPRES.jpg" style="width: 310.52000000000004px; height: 196.91000000000003px;" /></a>
+<p>The Doppler effect can give us the velocity of an object via the following formula:</p>
+<div class="math notranslate nohighlight" id="equation-doppler-velocity">
+<span class="eqno">(9)<a class="headerlink" href="#equation-doppler-velocity" title="Permalink to this equation">#</a></span>\[\frac{v_0}{c} = \frac{\lambda - \lambda_0}{\lambda_0},\]</div>
+<p>where <span class="math notranslate nohighlight">\(v_0\)</span> is the velocity of the object, <span class="math notranslate nohighlight">\(c = 3 \times 10^8\)</span> m/s is the speed of light, <span class="math notranslate nohighlight">\(\lambda\)</span> and <span class="math notranslate nohighlight">\(\lambda_0\)</span> are the observed and emitted wavelengths, respectively.</p>
+<div class="admonition-question-5 admonition">
+<p class="admonition-title">Question 5</p>
+<p>Now that we know how to read a radial velocity graph, and we know how radial velocity measurements are made, you are equipped to find the mass of an exoplanet. How? Look at the equation for radial velocity above. If you’ve looked at the transit light curve of a planet, you can calculate the period and semi-major axis of your planet’s orbit, and the star’s mass has been given to you (can you think of how you would get the mass of a star?).</p>
+</div>
+<p>Let’s use Kepler 435b from yesterday’s activity as an example. To find the amplitude of the radial velocity variations of your star/planet system, (if these measurements exist for your system), go back to the find exoplanet database (<a class="reference external" href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&amp;config=planets">https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&amp;config=planets</a>), find your star, and click to arrive at the confirmed planet overview page. Check some of the references to see if you can find radial velocity data for this star. Using the radial velocity equation and plot we made above, find the amplitude of the stellar radial velocities. Does your value agree with what is listed in the literature? Remember that, for Kepler 435b, the calculated/given values were as follows: P = 8.6 days, a = 0.09 AU, <span class="math notranslate nohighlight">\(M_p = 0.8 M_J\)</span> and <span class="math notranslate nohighlight">\(M_{\ast} = 1.538 M_{\odot}\)</span></p>
+<p>As we can see, without knowing the orbital inclination <span class="math notranslate nohighlight">\(i\)</span>, we can only calculate a lower bound on the planet’s mass, i.e. the minimum mass <span class="math notranslate nohighlight">\(m_{p,true}\)</span>sin<span class="math notranslate nohighlight">\((i)\)</span>.</p>
+<p>A planet may have an atmosphere, so that light passing from the host star will also produce spectral signatures unique to the planet, in addition to any thermal emission from the planet itself. If you can manage to separate a star’s spectrum from the planet’s spectrum, you can then measure the radial velocity of the planet as well, and thus find out the inclination of the orbit. Substituting this in turn into the expression for the minimum mass will allow you to then calculate the true mass of your planet.</p>
+<p>Obtaining the mass of a given exoplanet from the information derived from the radial velocity method, as well as the size the planet from transit light curve analysis, one can then estimate the average density of the planet, as well as its surface gravity. Knowing the density, one can then determine whether the planet is a gas giant, like Jupiter or Saturn, or a rocky planet, like Earth!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./day_four"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../day_three/analyzing-kepler-lightcurves.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Exploring Confirmed Planets</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../reference/intro_to_colab_notebooks.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Colab</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Nicholas Earl based on material from Taylor Hutchison and Ryan Blackman<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
