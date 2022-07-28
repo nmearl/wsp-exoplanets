@@ -18,6 +18,9 @@ parts:
 - caption: Day 3
   chapters:
   - file: day_three/analyzing-kepler-lightcurves
+- caption: Day 4
+  chapters:
+  - file: day_four/radial-velocities-and-atmospheres
 - caption: Reference
   chapters:
   - file: reference/intro_to_colab_notebooks
