@@ -1,0 +1,13 @@
+# Final Presentation
+
+Now that we've learned about how exoplanets are detected, how to work with real data and find out the size of an exoplanet, it's your turn to go and do some independent research and present your results on the characterization of an exoplanet of your choosing. Use the information from the previous days of assignments to show your results from simulations and data analysis of a planetary system (e.g., Kepler-435), and then put together a scientific presentation of about 10 to 15 minutes on your research. 
+
+1. _Introduction/motivation_. Here you should tell people what exoplanets are, and why looking for other worlds is exciting and worthwhile (you want to convince your peers).
+
+2. _Methods/instruments_. Say what telescocpe you used (i.e. Kepler), show us what its field of view is and how many planets it's discovered so far (feel free to use the same figures I used). Explain what transits are and how you can use them to get things like the size of your planet. What does a transit signal depend on? Talk about how transits can't give you everything, like the mass of a planet, but that you can accomplish this by knowing the radial velocity variations of a the host star. 
+
+3. _Results_. Include the graphs of the light curves you've simulated and plotted, making sure that they contain at least two transit dips, and label the period, duration, and depth on your graph. Show us the math you did to get the radius of the planet, along with the semi-major axis (orbital distance), and compare to the known literature values. Also, you may tell us what the radial velocity of your planet's host star is, along with the inclination of the orbit and the mass of your star, and show the equation you use to calculate the mass of your planet.
+
+4. _Conclusions/Interpretations_. Use the mass and radius of your planet to tell us its average density. What does this imply? Do you expect it is a rocky or a gaseous planet? (Look up the average density of Earth and Jupiter for reference.) Give us the surface gravity of this planet. How does this compare to Earth's? If this is a drastic value, how would life have to evolve and look to walk around in a place like this? Finally, tell us how you define a habitable zone, and be prepared to explain why water plays such an important role in this. Does this planet lie in its solar system's habitable zone? How far away is it? Might humans be able to get to it anytime soon?
+
+5. _Future work_. What will the future of exoplanet science look like? What are the problems that atronomers are currently trying to overcome? What will be gained by discovering new planets that are unlike those known in the current population?

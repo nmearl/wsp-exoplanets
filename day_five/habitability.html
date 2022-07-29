@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Analyzing Light Curves &#8212; Exoplanets</title>
+    <title>Planetary Habitability &#8212; Exoplanets</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Generating Fake Data" href="generating-fake-data.html" />
-    <link rel="prev" title="Exoplanet Transits" href="exoplanet-transits.html" />
+    <link rel="next" title="The Drake Equation and the Fermi Paradox" href="drake-equation.html" />
+    <link rel="prev" title="Radial Velocities and Atmospheres" href="../day_four/radial-velocities-and-atmospheres.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -120,24 +120,24 @@ const thebe_selector_output = ".output, .cell_output"
   Day 1
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="introduction-to-exoplanets.html">
+  <a class="reference internal" href="../day_one/introduction-to-exoplanets.html">
    Introduction to Exoplanets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="exoplanet-transits.html">
+  <a class="reference internal" href="../day_one/exoplanet-transits.html">
    Exoplanet Transits
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_one/analyzing-light-curves.html">
    Analyzing Light Curves
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="generating-fake-data.html">
+  <a class="reference internal" href="../day_one/generating-fake-data.html">
    Generating Fake Data
   </a>
  </li>
@@ -193,19 +193,19 @@ const thebe_selector_output = ".output, .cell_output"
   Day 5
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../day_five/habitability.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Planetary Habitability
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../day_five/drake-equation.html">
+  <a class="reference internal" href="drake-equation.html">
    The Drake Equation and the Fermi Paradox
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../day_five/final-project.html">
+  <a class="reference internal" href="final-project.html">
    Final Presentation
   </a>
  </li>
@@ -311,7 +311,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/nmearl/wsp-exoplanets/issues/new?title=Issue%20on%20page%20%2Fday_one/analyzing-light-curves.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/nmearl/wsp-exoplanets/issues/new?title=Issue%20on%20page%20%2Fday_five/habitability.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -339,7 +339,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/day_one/analyzing-light-curves.md"
+        <a href="../_sources/day_five/habitability.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -388,7 +388,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Analyzing Light Curves</h1>
+                <h1>Planetary Habitability</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -400,149 +400,76 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="analyzing-light-curves">
-<h1>Analyzing Light Curves<a class="headerlink" href="#analyzing-light-curves" title="Permalink to this headline">#</a></h1>
-<p>As you have already seen, the change in brightness of a star as it is transited by a planet tells us something about the size of the planet relative to the size of the star. Specifically, the ratio of the observed change in flux to the total flux of the star can be written as:</p>
-<div class="math notranslate nohighlight" id="equation-flux-ratio">
-<span class="eqno">(1)<a class="headerlink" href="#equation-flux-ratio" title="Permalink to this equation">#</a></span>\[\frac{\Delta F}{F} = \frac{\pi R_{p}^2}{\pi R_{s}^2} = \left( \frac{R_{p}}{R_{s}} \right)^2\]</div>
-<p>where <span class="math notranslate nohighlight">\(R_p\)</span> is the radius of the planet and <span class="math notranslate nohighlight">\(R_s\)</span> is the radius of the star. When a planet transits a star, we see a planet-sized area blocked out (remember the area of a circle), giving the part on the top.  The total flux <span class="math notranslate nohighlight">\(F\)</span> is proportional to the area of the star, giving the part on the bottom.</p>
-<p>Additionally, as you just learned, the period of the exoplanet may be determined from the separation between dips in its host star’s light curve. This is because each dip represents a transit of the planet, and the planet transits once every revolution. As it turns out, a planet’s orbital period is directly related to its average distance from the star. The shorter the planet’s period is, the closer it is to the star. This relation is given mathematically by the following expression:</p>
-<div class="math notranslate nohighlight" id="equation-kepler-third-period">
-<span class="eqno">(2)<a class="headerlink" href="#equation-kepler-third-period" title="Permalink to this equation">#</a></span>\[P^2 = \frac{4 \pi^2 a^3}{G (M_s + m_p)} \approx \frac{a^3}{M_s}\]</div>
-<p>where <span class="math notranslate nohighlight">\(a\)</span> is related to the average orbital distance in AU, <span class="math notranslate nohighlight">\(P\)</span> is the period of the planet in years, and <span class="math notranslate nohighlight">\(M_s\)</span> is the mass of the star in terms of solar masses (<span class="math notranslate nohighlight">\(M_\odot\)</span>). 1 AU, or 1 astronomical unit, is equal to the average distance from the Earth to the Sun, which is <span class="math notranslate nohighlight">\(\sim 1.5\times 10^8\)</span> km. Rearranging this, we can find</p>
-<div class="math notranslate nohighlight" id="equation-kepler-third-semimajor">
-<span class="eqno">(3)<a class="headerlink" href="#equation-kepler-third-semimajor" title="Permalink to this equation">#</a></span>\[a=\sqrt[3]{M_s \times P^2}.\]</div>
-<p>This equation is the mathematical representation of what is known as Kepler’s third law, generalized for planets around stars of any mass. As you will be learning more about Kepler’s laws of planetary motion later in your lectures, we won’t go into much detail about it at the moment. For now, you can simply treat it as a tool with which we can determine orbital distances for exoplanets from their light curves.</p>
-<p>Knowing this, let’s consider some real light curves obtained using NASA’s Kepler Mission, the most efficient planet-hunter we have today.  Kepler is a space observatory designed to survey a region of the Milky Way galaxy to discover Earth-sized and smaller planets. It does so through the continuous monitoring of over 145,000 stars.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="planetary-habitability">
+<h1>Planetary Habitability<a class="headerlink" href="#planetary-habitability" title="Permalink to this headline">#</a></h1>
+<p>Now that we’ve learned a bit about exoplanets (how they’re characterized, their orbital mechanics, etc.), you might be curious as to whether such systems could be suitable for some form of life. Could otherworldly beings exist somewhere in our galaxy, secretly planning their voyage to the Earth? Could there even be life elsewhere in our Solar System? In order to consider this prospect, let’s think about what properties make an environment hospitable to life.</p>
+<div class="tip admonition">
+<p class="admonition-title">Question 1</p>
+<p>Imagine the factors that have allowed life to flourish on Earth. What do you believe are the requirements that are necessary for life to arise and thrive on a planet? You might think about such factors as what temperature range is necessary for life, whether life needs light to survive, what kind of atmosphere may be necessary, etc. Discuss with a partner.</p>
+</div>
+<p>As you might have guessed, one of the most important considerations for life is the presence of liquid water. Water is absolutely vital for life on Earth because it is such a great solvent. In chemistry, a solvent is a substance which is able to dissolve another distinct substance (a solute), thereby creating a mixture known as a solution. For example, imagine making a cup of tea. After filling a cup with hot water, you put the tea bag in. You may also add other flavors, such as honey or sugar. The honey and sugar will dissolve in the water, as will the tannins and lignins from the tea leaves; however, the tea leaves themselves will not dissolve. Thus, the hot water is the solvent, and the honey, sugar, tannins, lignins, etc. are the solutes. The tea leaves are what we call insoluble. Solvency of water is extremely important. In our own bodies, for instance, this helps blood to carry electrolytes and nutrients throughout our body and remove waste materials from cells, as well as to suspend red blood cells. It can also facilitate chemical reactions.</p>
+<p>Other great characteristics of water are that it is liquid at a wide range of temperatures (0℃ - 100℃, or 32℉ - 212℉ on the surface of the Earth), and that it changes temperature slowly. Water is most easily able to transport nutrients and other materials within bodies, ecosystems, etc. when it is in liquid form. The fact that it changes temperature slowly helps with temperature regulation, such as in the human body.</p>
+<p>The environments in which water can exist in liquid form depend on temperature and pressure. We can determine the range of temperatures and pressures for which is the case from what is called the phase diagram for water, shown below:</p>
+<img alt="../_images/water_phase_diagram.jpg" src="../_images/water_phase_diagram.jpg" />
+<p>The y-axis is pressure, which is measured in units of atmospheres. The surface pressure of the Earth is 1 atmosphere. The x-axis is temperature, measured in degrees Celsius. Each of the three segments in the diagram represents a combination of pressures and temperatures for which water is in gas form, liquid form, or solid form.</p>
+<div class="tip admonition">
+<p class="admonition-title">Question 2</p>
+<p>Based on what you know about the temperatures at which water is in ice, liquid, and gas form on Earth’s surface, label the three regions in the phase diagram above with the words “ice”, “liquid”, and “gas”.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Question 3</p>
+<p>Earth’s average surface temperature is about 15℃. Draw a circle labelled “E” where Earth is on the above diagram.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Question 4</p>
+<ol class="simple">
+<li><p>Mars’ average surface pressure and temperature are about 0.006 atmospheres and -55℃. Draw a circle labelled “M” where Mars is on the diagram. Can <strong>pure</strong> liquid water exist on Mars’ surface?</p></li>
+<li><p>Mars’ temperature can vary a bit, ranging from -153℃ at the poles to 20℃ at the equator during midday. Is there any time at which pure liquid water can exist on Mars’ surface? What happens to the state of water on Mars’ surface as the temperature increases?</p></li>
+<li><p>Mars’ surface temperature and pressure have changed over time. Early on in its existence, Mars’ pressure may have been around 1.5 atmospheres, with a temperature of about -20-0℃. Could pure liquid water have existed on ancient Mars?</p></li>
+</ol>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Quesiton 5</p>
+<p><strong>Q5a)</strong> How about Venus? Currently, Venus’ surface pressure is a whopping 90 atmospheres (about the same pressure as 1 km under the surface of Earth’s oceans), and its temperature is an incredible 462℃. Draw a circle labelled “V” at Venus’ position on the diagram. Can pure liquid water exist on its surface?</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Question 6</p>
+<p>Could liquid water have existed on ancient Venus, when its pressure was only about 1 atmosphere and temperatures were around 40-100℃?</p>
+</div>
+<p>As you can see, planetary environments can change; Venus’ surface, for instance, became much more highly pressurized and hot as time went on. We won’t go into detail about it here, but the changes on Venus’ surface resulted from an increase in the Sun’s energy output over time, which caused Venus’ surface water to evaporate into the atmosphere. Since water is a greenhouse gas like carbon dioxide, it helped to trap heat, leading to a substantial increase in pressure and temperature.</p>
+<div class="warning admonition">
+<p class="admonition-title">Challenge</p>
+<p>Water has proven to be a vital chemical for life on Earth due to its nature as a universal solvent. However, water doesn’t have to be the only option available when it comes to solvent; ammonia and methane have been proposed as possible alternatives. Can you imagine any problems with using either one in place of water? (Hint: consider each substance’s phase diagram and the conditions in which they are liquid; use Google to find the diagram for each solvent.)</p>
+</div>
+<p>Now that we know that the presence of liquid water is dependent on temperature and pressure, let’s consider how we can estimate the surface temperature of the exoplanets we’ve been characterizing. The situation we’ll be considering is an extremely simplified one, one in which the effects of the presence of an atmosphere or an ocean will not be considered.</p>
+<p>We can estimate the temperature of a planet by setting the amount of energy that it gets from its star equal to the amount of energy that it radiates away.  After doing some math (which I can show you if you’re really interested), we get the simple relation below:</p>
+<div class="math notranslate nohighlight" id="equation-temp-relation">
+<span class="eqno">(10)<a class="headerlink" href="#equation-temp-relation" title="Permalink to this equation">#</a></span>\[T_P=T_* \sqrt{\frac{R_*}{2 a}}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(R_*\)</span> is the radius of the star, <span class="math notranslate nohighlight">\(a\)</span> is the semi-major axis, and <span class="math notranslate nohighlight">\(T_*\)</span> is the temperature of the star.</p>
+<p>Great! Now we have an equation that relates the temperature of a planet to its orbit and the properties of its star.  (Hint: 1 <span class="math notranslate nohighlight">\(R_{\odot}\)</span>= 0.00465 AU).  We’re also going to calculate temperature in Kelvin, the preferred temperature scale of science, which is a constant offset from Celsius such that <span class="math notranslate nohighlight">\(T_K = T_C + 273\)</span>.  For instance, 0℃ = 273 K, or 1000℃ = 1273 K)</p>
+<div class="tip admonition">
+<p class="admonition-title">Question 7</p>
+<p>At what range of semi-major axes would the Earth have liquid water? Are any other planets in the Solar System in the “habitable zone”? (Hint: rearrange the above equation for <span class="math notranslate nohighlight">\(a\)</span>. Remember that water freezes at 0 ℃ and boils at 100 ℃.  The Sun has a temperature of 5770 K.)</p>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">Question 8</p>
-<p>The following are graphs of light curves from Kepler (source: Transit Tracks Student Worksheet, the Regents of the University of California). Using the equations from above and the given stellar masses (found on the top of each page), calculate</p>
-<ol class="simple">
-<li><p>the radius of the planet (in Earth radii; to do so, use the fact that the Sun’s radius is about 110 times that of the Earth),</p></li>
-<li><p>the period (in days), and</p></li>
-<li><p>the orbital distance (in AU) of the following planets.</p></li>
-</ol>
-<p>Use the given table to estimate the radius of the given star in solar radii from its mass. Note that <span class="math notranslate nohighlight">\(M_\odot\)</span> is equal to <span class="math notranslate nohighlight">\(M_{Sun}\)</span>.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Mass and Radius Estimates Table<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(S_p\)</span></p></th>
-<th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(M/M_\odot\)</span></p></th>
-<th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(R/R_\odot\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p class="sd-card-text">O3</p></td>
-<td><p class="sd-card-text">120</p></td>
-<td><p class="sd-card-text">15</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">O5</p></td>
-<td><p class="sd-card-text">60</p></td>
-<td><p class="sd-card-text">12</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">O6</p></td>
-<td><p class="sd-card-text">37</p></td>
-<td><p class="sd-card-text">10</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">O8</p></td>
-<td><p class="sd-card-text">23</p></td>
-<td><p class="sd-card-text">8.5</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">B0</p></td>
-<td><p class="sd-card-text">17.5</p></td>
-<td><p class="sd-card-text">7.4</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">B3</p></td>
-<td><p class="sd-card-text">7.6</p></td>
-<td><p class="sd-card-text">4.8</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">B5</p></td>
-<td><p class="sd-card-text">5.9</p></td>
-<td><p class="sd-card-text">3.9</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">B8</p></td>
-<td><p class="sd-card-text">3.8</p></td>
-<td><p class="sd-card-text">3.0</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">A0</p></td>
-<td><p class="sd-card-text">2.8</p></td>
-<td><p class="sd-card-text">2.4</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">A5</p></td>
-<td><p class="sd-card-text">2.0</p></td>
-<td><p class="sd-card-text">1.7</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">F0</p></td>
-<td><p class="sd-card-text">1.6</p></td>
-<td><p class="sd-card-text">1.5</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">F5</p></td>
-<td><p class="sd-card-text">1.4</p></td>
-<td><p class="sd-card-text">1.3</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">G0</p></td>
-<td><p class="sd-card-text">1.05</p></td>
-<td><p class="sd-card-text">1.1</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">G5</p></td>
-<td><p class="sd-card-text">0.92</p></td>
-<td><p class="sd-card-text">0.92</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">K0</p></td>
-<td><p class="sd-card-text">0.79</p></td>
-<td><p class="sd-card-text">0.85</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">K5</p></td>
-<td><p class="sd-card-text">0.67</p></td>
-<td><p class="sd-card-text">0.72</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">M0</p></td>
-<td><p class="sd-card-text">0.51</p></td>
-<td><p class="sd-card-text">0.60</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">M2</p></td>
-<td><p class="sd-card-text">0.40</p></td>
-<td><p class="sd-card-text">0.50</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">M5</p></td>
-<td><p class="sd-card-text">0.21</p></td>
-<td><p class="sd-card-text">0.27</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">M8</p></td>
-<td><p class="sd-card-text">0.06</p></td>
-<td><p class="sd-card-text">0.10</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</details><div class="sd-tab-set docutils">
-<input checked="checked" id="f3fd5eb0-b3f0-4c5d-919c-d5491ec136b4" name="53b1d400-c838-415a-8ade-c35d0d31f2b5" type="radio">
-</input><label class="sd-tab-label" for="f3fd5eb0-b3f0-4c5d-919c-d5491ec136b4">
-Kepler-1b (TrES-2)</label><div class="sd-tab-content docutils">
-<p>Mass of star: 0.98 M<span class="math notranslate nohighlight">\(_{\odot}\)</span></p>
-<img alt="../_images/TrES-2_lc.png" id="transit-1b" src="../_images/TrES-2_lc.png" />
-</div>
-<input id="05a64ad1-2a9b-4122-973a-c6f97eaeb2b3" name="53b1d400-c838-415a-8ade-c35d0d31f2b5" type="radio">
-</input><label class="sd-tab-label" for="05a64ad1-2a9b-4122-973a-c6f97eaeb2b3">
-Kepler-3b (HAT-P-11b)</label><div class="sd-tab-content docutils">
-<p>Mass of star: 0.81 M<span class="math notranslate nohighlight">\(_{\odot}\)</span></p>
-<img alt="../_images/HAT-P-11b_lc.png" id="transit-3b" src="../_images/HAT-P-11b_lc.png" />
-</div>
-</div>
+<p>Most of the stars near our Sun are much smaller and cooler.  For instance, the nearest star to the Sun is Proxima Centauri.  Proxima Centauri has a radius of 0.14 <span class="math notranslate nohighlight">\(R_{\odot}\)</span> and a temperature of 3040 K. What range of semi-major axes can water-hosting planets have around Proxima Centauri?</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Question 9</p>
-<p>Choosing a stellar mass, planet size, and orbital radius, generate your own light curve.</p>
+<p>One of the most exciting discoveries of the past few years was a planet around Proxima Centauri. The planet has an orbital period of 11.2 days. What is the planet’s temperature in ℃? Could this planet host liquid water?</p>
 </div>
+<div class="warning admonition">
+<p class="admonition-title">Challenge</p>
+<p>Consider Earth’s position in the Solar System (at 1 AU from the Sun). According to the equation above, what should its temperature be? Is this consistent with the true average temperature of the Earth? If it isn’t, can you imagine any reasons why?</p>
+</div>
+<p>As you have seen, the distance at which liquid water can exist within a solar system (which we will define as the <strong>habitable zone</strong>) depends upon the temperature of its star. Smaller, cooler stars will have habitable zones that are closer to them than larger, hotter stars. This can be explained visually with a plot of the habitable zone of stars, as you will see in your lecture later today:</p>
+<figure class="align-default">
+<img alt="../_images/habitable_zone_plot.png" src="../_images/habitable_zone_plot.png" />
+</figure>
 <div class="tip admonition">
 <p class="admonition-title">Question 10</p>
-<p>Why do you imagine it is important for astronomers to know the orbital radii and sizes of exoplanets?  What important information can we learn about planets from these quantities?</p>
+<p>According to this plot, Earth is the only planet in our Solar System which exists in the traditional habitable zone. However, that hasn’t stopped scientists from considering the existence of life among our nearest neighbors! Take a little bit of time to poke around the Internet and see if you can find another body in our Solar System which could possibly host life. Write a little bit about it here: What is its environment like (pressure, temperature, etc.)? Does it support liquid water? What sort of energy source might potential lifeforms use to support themselves?</p>
 </div>
 </section>
 
@@ -559,7 +486,7 @@ Kepler-3b (HAT-P-11b)</label><div class="sd-tab-content docutils">
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./day_one"
+            path: "./day_five"
         },
         predefinedOutput: true
     }
@@ -573,17 +500,17 @@ Kepler-3b (HAT-P-11b)</label><div class="sd-tab-content docutils">
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="exoplanet-transits.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../day_four/radial-velocities-and-atmospheres.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Exoplanet Transits</p>
+            <p class="prev-next-title">Radial Velocities and Atmospheres</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="generating-fake-data.html" title="next page">
+    <a class='right-next' id="next-link" href="drake-equation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Generating Fake Data</p>
+        <p class="prev-next-title">The Drake Equation and the Fermi Paradox</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

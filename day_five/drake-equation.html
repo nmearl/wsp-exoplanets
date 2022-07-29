@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Analyzing Light Curves &#8212; Exoplanets</title>
+    <title>The Drake Equation and the Fermi Paradox &#8212; Exoplanets</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Generating Fake Data" href="generating-fake-data.html" />
-    <link rel="prev" title="Exoplanet Transits" href="exoplanet-transits.html" />
+    <link rel="next" title="Final Presentation" href="final-project.html" />
+    <link rel="prev" title="Planetary Habitability" href="habitability.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -120,24 +120,24 @@ const thebe_selector_output = ".output, .cell_output"
   Day 1
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="introduction-to-exoplanets.html">
+  <a class="reference internal" href="../day_one/introduction-to-exoplanets.html">
    Introduction to Exoplanets
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="exoplanet-transits.html">
+  <a class="reference internal" href="../day_one/exoplanet-transits.html">
    Exoplanet Transits
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../day_one/analyzing-light-curves.html">
    Analyzing Light Curves
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="generating-fake-data.html">
+  <a class="reference internal" href="../day_one/generating-fake-data.html">
    Generating Fake Data
   </a>
  </li>
@@ -193,19 +193,19 @@ const thebe_selector_output = ".output, .cell_output"
   Day 5
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../day_five/habitability.html">
+  <a class="reference internal" href="habitability.html">
    Planetary Habitability
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../day_five/drake-equation.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    The Drake Equation and the Fermi Paradox
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../day_five/final-project.html">
+  <a class="reference internal" href="final-project.html">
    Final Presentation
   </a>
  </li>
@@ -311,7 +311,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/nmearl/wsp-exoplanets/issues/new?title=Issue%20on%20page%20%2Fday_one/analyzing-light-curves.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/nmearl/wsp-exoplanets/issues/new?title=Issue%20on%20page%20%2Fday_five/drake-equation.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -339,7 +339,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/day_one/analyzing-light-curves.md"
+        <a href="../_sources/day_five/drake-equation.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -388,7 +388,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Analyzing Light Curves</h1>
+                <h1>The Drake Equation and the Fermi Paradox</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -400,149 +400,48 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="analyzing-light-curves">
-<h1>Analyzing Light Curves<a class="headerlink" href="#analyzing-light-curves" title="Permalink to this headline">#</a></h1>
-<p>As you have already seen, the change in brightness of a star as it is transited by a planet tells us something about the size of the planet relative to the size of the star. Specifically, the ratio of the observed change in flux to the total flux of the star can be written as:</p>
-<div class="math notranslate nohighlight" id="equation-flux-ratio">
-<span class="eqno">(1)<a class="headerlink" href="#equation-flux-ratio" title="Permalink to this equation">#</a></span>\[\frac{\Delta F}{F} = \frac{\pi R_{p}^2}{\pi R_{s}^2} = \left( \frac{R_{p}}{R_{s}} \right)^2\]</div>
-<p>where <span class="math notranslate nohighlight">\(R_p\)</span> is the radius of the planet and <span class="math notranslate nohighlight">\(R_s\)</span> is the radius of the star. When a planet transits a star, we see a planet-sized area blocked out (remember the area of a circle), giving the part on the top.  The total flux <span class="math notranslate nohighlight">\(F\)</span> is proportional to the area of the star, giving the part on the bottom.</p>
-<p>Additionally, as you just learned, the period of the exoplanet may be determined from the separation between dips in its host star’s light curve. This is because each dip represents a transit of the planet, and the planet transits once every revolution. As it turns out, a planet’s orbital period is directly related to its average distance from the star. The shorter the planet’s period is, the closer it is to the star. This relation is given mathematically by the following expression:</p>
-<div class="math notranslate nohighlight" id="equation-kepler-third-period">
-<span class="eqno">(2)<a class="headerlink" href="#equation-kepler-third-period" title="Permalink to this equation">#</a></span>\[P^2 = \frac{4 \pi^2 a^3}{G (M_s + m_p)} \approx \frac{a^3}{M_s}\]</div>
-<p>where <span class="math notranslate nohighlight">\(a\)</span> is related to the average orbital distance in AU, <span class="math notranslate nohighlight">\(P\)</span> is the period of the planet in years, and <span class="math notranslate nohighlight">\(M_s\)</span> is the mass of the star in terms of solar masses (<span class="math notranslate nohighlight">\(M_\odot\)</span>). 1 AU, or 1 astronomical unit, is equal to the average distance from the Earth to the Sun, which is <span class="math notranslate nohighlight">\(\sim 1.5\times 10^8\)</span> km. Rearranging this, we can find</p>
-<div class="math notranslate nohighlight" id="equation-kepler-third-semimajor">
-<span class="eqno">(3)<a class="headerlink" href="#equation-kepler-third-semimajor" title="Permalink to this equation">#</a></span>\[a=\sqrt[3]{M_s \times P^2}.\]</div>
-<p>This equation is the mathematical representation of what is known as Kepler’s third law, generalized for planets around stars of any mass. As you will be learning more about Kepler’s laws of planetary motion later in your lectures, we won’t go into much detail about it at the moment. For now, you can simply treat it as a tool with which we can determine orbital distances for exoplanets from their light curves.</p>
-<p>Knowing this, let’s consider some real light curves obtained using NASA’s Kepler Mission, the most efficient planet-hunter we have today.  Kepler is a space observatory designed to survey a region of the Milky Way galaxy to discover Earth-sized and smaller planets. It does so through the continuous monitoring of over 145,000 stars.</p>
-<div class="tip admonition">
-<p class="admonition-title">Question 8</p>
-<p>The following are graphs of light curves from Kepler (source: Transit Tracks Student Worksheet, the Regents of the University of California). Using the equations from above and the given stellar masses (found on the top of each page), calculate</p>
-<ol class="simple">
-<li><p>the radius of the planet (in Earth radii; to do so, use the fact that the Sun’s radius is about 110 times that of the Earth),</p></li>
-<li><p>the period (in days), and</p></li>
-<li><p>the orbital distance (in AU) of the following planets.</p></li>
-</ol>
-<p>Use the given table to estimate the radius of the given star in solar radii from its mass. Note that <span class="math notranslate nohighlight">\(M_\odot\)</span> is equal to <span class="math notranslate nohighlight">\(M_{Sun}\)</span>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-drake-equation-and-the-fermi-paradox">
+<h1>The Drake Equation and the Fermi Paradox<a class="headerlink" href="#the-drake-equation-and-the-fermi-paradox" title="Permalink to this headline">#</a></h1>
+<p>In 1961, radio astronomer Frank Drake came up with a probabilistic argument in an attempt to answer the popular question of how many intelligent alien civilizations might exist in our galaxy. It was in part an estimate informed by his scientific training, and partly by observations of human nature and how/if those might apply to other potential civilizations. His equation looked something like this:</p>
+<p><span class="math notranslate nohighlight">\(N = R_* ~\times~ f_p ~\times~ n_e ~\times~ f_l ~\times~ f_i ~\times~ f_c ~\times~ L \)</span></p>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span>   = The number of civilizations in the Milky Way Galaxy whose electromagnetic emissions are detectable.</p></li>
+<li><p><span class="math notranslate nohighlight">\(R_*\)</span> = The rate of formation of stars suitable for the development of intelligent life.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_p\)</span> = The fraction of those stars with planetary systems.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n_e\)</span> = The number of planets, per solar system, with an environment suitable for life.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_l\)</span> = The fraction of suitable planets on which life actually appears.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_i\)</span> = The fraction of life bearing planets on which intelligent life emerges.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_c\)</span> = The fraction of civilizations that develop a technology that releases detectable signs of their existence into space.</p></li>
+<li><p><span class="math notranslate nohighlight">\(L\)</span> = The length of time such civilizations release detectable signals into space.</p></li>
+</ul>
+<p><strong>Stop</strong> here to discuss this equation and come up with our own estimate of how many civilizations are detectable.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-Mass and Radius Estimates Table<div class="sd-summary-down docutils">
+Values Used by Drake<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(S_p\)</span></p></th>
-<th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(M/M_\odot\)</span></p></th>
-<th class="head"><p class="sd-card-text"><span class="math notranslate nohighlight">\(R/R_\odot\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p class="sd-card-text">O3</p></td>
-<td><p class="sd-card-text">120</p></td>
-<td><p class="sd-card-text">15</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">O5</p></td>
-<td><p class="sd-card-text">60</p></td>
-<td><p class="sd-card-text">12</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">O6</p></td>
-<td><p class="sd-card-text">37</p></td>
-<td><p class="sd-card-text">10</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">O8</p></td>
-<td><p class="sd-card-text">23</p></td>
-<td><p class="sd-card-text">8.5</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">B0</p></td>
-<td><p class="sd-card-text">17.5</p></td>
-<td><p class="sd-card-text">7.4</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">B3</p></td>
-<td><p class="sd-card-text">7.6</p></td>
-<td><p class="sd-card-text">4.8</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">B5</p></td>
-<td><p class="sd-card-text">5.9</p></td>
-<td><p class="sd-card-text">3.9</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">B8</p></td>
-<td><p class="sd-card-text">3.8</p></td>
-<td><p class="sd-card-text">3.0</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">A0</p></td>
-<td><p class="sd-card-text">2.8</p></td>
-<td><p class="sd-card-text">2.4</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">A5</p></td>
-<td><p class="sd-card-text">2.0</p></td>
-<td><p class="sd-card-text">1.7</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">F0</p></td>
-<td><p class="sd-card-text">1.6</p></td>
-<td><p class="sd-card-text">1.5</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">F5</p></td>
-<td><p class="sd-card-text">1.4</p></td>
-<td><p class="sd-card-text">1.3</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">G0</p></td>
-<td><p class="sd-card-text">1.05</p></td>
-<td><p class="sd-card-text">1.1</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">G5</p></td>
-<td><p class="sd-card-text">0.92</p></td>
-<td><p class="sd-card-text">0.92</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">K0</p></td>
-<td><p class="sd-card-text">0.79</p></td>
-<td><p class="sd-card-text">0.85</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">K5</p></td>
-<td><p class="sd-card-text">0.67</p></td>
-<td><p class="sd-card-text">0.72</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">M0</p></td>
-<td><p class="sd-card-text">0.51</p></td>
-<td><p class="sd-card-text">0.60</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">M2</p></td>
-<td><p class="sd-card-text">0.40</p></td>
-<td><p class="sd-card-text">0.50</p></td>
-</tr>
-<tr class="row-even"><td><p class="sd-card-text">M5</p></td>
-<td><p class="sd-card-text">0.21</p></td>
-<td><p class="sd-card-text">0.27</p></td>
-</tr>
-<tr class="row-odd"><td><p class="sd-card-text">M8</p></td>
-<td><p class="sd-card-text">0.06</p></td>
-<td><p class="sd-card-text">0.10</p></td>
-</tr>
-</tbody>
-</table>
+<p class="sd-card-text">The following were the values used by Drake:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(R_*\)</span> = 10</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(f_p\)</span> = 0.5</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(n_e\)</span> = 2.0</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(f_l\)</span> = 1.0</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(f_i\)</span> = 0.01</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(f_c\)</span> = 0.01</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(L\)</span> = 10000</p></li>
+</ul>
 </div>
-</details><div class="sd-tab-set docutils">
-<input checked="checked" id="f3fd5eb0-b3f0-4c5d-919c-d5491ec136b4" name="53b1d400-c838-415a-8ade-c35d0d31f2b5" type="radio">
-</input><label class="sd-tab-label" for="f3fd5eb0-b3f0-4c5d-919c-d5491ec136b4">
-Kepler-1b (TrES-2)</label><div class="sd-tab-content docutils">
-<p>Mass of star: 0.98 M<span class="math notranslate nohighlight">\(_{\odot}\)</span></p>
-<img alt="../_images/TrES-2_lc.png" id="transit-1b" src="../_images/TrES-2_lc.png" />
+</details><div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p>What does this equal, and how does this compare to your estimate?</p>
 </div>
-<input id="05a64ad1-2a9b-4122-973a-c6f97eaeb2b3" name="53b1d400-c838-415a-8ade-c35d0d31f2b5" type="radio">
-</input><label class="sd-tab-label" for="05a64ad1-2a9b-4122-973a-c6f97eaeb2b3">
-Kepler-3b (HAT-P-11b)</label><div class="sd-tab-content docutils">
-<p>Mass of star: 0.81 M<span class="math notranslate nohighlight">\(_{\odot}\)</span></p>
-<img alt="../_images/HAT-P-11b_lc.png" id="transit-3b" src="../_images/HAT-P-11b_lc.png" />
-</div>
-</div>
-</div>
-<div class="tip admonition">
-<p class="admonition-title">Question 9</p>
-<p>Choosing a stellar mass, planet size, and orbital radius, generate your own light curve.</p>
-</div>
-<div class="tip admonition">
-<p class="admonition-title">Question 10</p>
-<p>Why do you imagine it is important for astronomers to know the orbital radii and sizes of exoplanets?  What important information can we learn about planets from these quantities?</p>
+<p>If we expect there to be at least a handful of technologoically-advanced, detectable civilizations in our galaxy, think about how many more there should be in the hundred billion galaxies that exist in only the <em>observable</em> universe. And yet, we haven’t encountered a single one of them. What gives? This is the Nobel prize-winning physicist Enrico Fermi pondered, in what has famously come to be known as the <strong>Fermi Paradox</strong>. (Click here for an excellent read on <em>why</em> it’s possible that we haven’t seen or heard of aliens yet: <a class="reference external" href="https://waitbutwhy.com/2014/05/fermi-paradox.html">https://waitbutwhy.com/2014/05/fermi-paradox.html</a>)</p>
+<div class="admonition-question-2 admonition">
+<p class="admonition-title">Question 2</p>
+<p>Why do you think we haven’t picked up on any signals from or been visited by aliens yet?</p>
 </div>
 </section>
 
@@ -559,7 +458,7 @@ Kepler-3b (HAT-P-11b)</label><div class="sd-tab-content docutils">
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./day_one"
+            path: "./day_five"
         },
         predefinedOutput: true
     }
@@ -573,17 +472,17 @@ Kepler-3b (HAT-P-11b)</label><div class="sd-tab-content docutils">
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="exoplanet-transits.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="habitability.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Exoplanet Transits</p>
+            <p class="prev-next-title">Planetary Habitability</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="generating-fake-data.html" title="next page">
+    <a class='right-next' id="next-link" href="final-project.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Generating Fake Data</p>
+        <p class="prev-next-title">Final Presentation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
