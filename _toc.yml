@@ -21,6 +21,11 @@ parts:
 - caption: Day 4
   chapters:
   - file: day_four/radial-velocities-and-atmospheres
+- caption: Day 5
+  chapters:
+  - file: day_five/habitability
+  - file: day_five/drake-equation
+  - file: day_five/final-project
 - caption: Reference
   chapters:
   - file: reference/intro_to_colab_notebooks
